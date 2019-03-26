@@ -1,33 +1,129 @@
-.App {
+.slide {
+  width: 100%;
+  height: 600px;
+  background-image: url("assets/wiitylogo.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.perro {
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/wiitylogo.png");
+  background-size: cover;
+  background-position: center;
+}
+.about-c {
+  background: #ffb218;
+  display: flex;
+  justify-content: center;
+}
+.card {
+  margin-top: 80px;
+  width: 900px;
+  height: 210px;
+  background: #FFF;
+  text-align: center;
+  box-shadow: 0px 0px 10px 9px rgba(0, 0, 0, 0.2);
+}
+.about-t {
+  color: #ffb218;
+  text-transform: uppercase;
+  font-size: 45px;
+  margin-top: 8px;
+  font-weight: 800;
+}
+.about-p {
+  font-size: 26px;
+  margin-top: -30px;
+  width: 55%;
+  line-height: 30px;
+}
+.why {
+  margin-top: 80px;
+  color: #FFF;
+  font-size: 40px;
+}
+.thre {
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.img {
+  width: 300px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pt {
+  width: 300px;
+  color: #FFF;
+  margin-top: 0px;
+  font-size: 38px;
+}
+.ptt-container {
+  width: 300px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.ptt {
+  margin-top: -30px;
+  width: 85%;
+  font-size: 18px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.lamp {
+  width: 25%;
+  height: 180px;
+  position: relative;
+  display: inline-block;
+}
+.lamp .img-top {
+  display: none;
+  position: absolute;
+  z-index: 99;
+}
+.lamp:hover .img-top {
+  display: inline;
+}
+.prueba {
+  display: none;
+}
+.lamp:hover .prueba {
+  display: flex;
+  width: 1200px;
+  height: 420px;
+  background: #04192d;;
+  justify-content: center;
+  margin-left: 50px;
+}
+.c-cont1 {
+  width: 33.3%;
+  height: 400px;
+}
+.c-cont2 {
+  width: 33.3%;
+  height: 400px;
+}
+.c-cont3 {
+  width: 33.3%;
+  height: 400px;
+}
+.sep {
+  margin-top: -18px;
+  height: 50px;
+  background: #ff8500;
+  text-align: center;
+}
+.sep-t {
+  font-size: 20px;
+  color: #1c2b3f;
+  line-height: 18px;
+}
+.sep-tt {
+  margin-top: -20px;
+  font-size: 12px;
+  color: #1c2b3f;
+}
+.sep2 {
+  margin-top: 20px;
+  height: 50px;
+  background: transparent;
+  text-align: center;
 }
