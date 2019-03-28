@@ -5,7 +5,9 @@
 .contact {
   font-size: 60px;
   color: #FFF;
+  width: 100%;
   font-weight: 400;
+  text-align: center;
 }
 .contact2 {
   font-size: 50px;
