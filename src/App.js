@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Contact} from './components/contact/Contact';
-import firebase from './Firebase';
+// import {Contact} from './components/contact/Contact';
+// import firebase from './Firebase';
+import firebaseConf from './Firebase';
 import img1 from './assets/icon1.png';
 import img2 from './assets/icon2.png';
 import img3 from './assets/icon3.png';
@@ -16,65 +17,56 @@ import lamp7 from './assets/lamp8.png';
 import img4 from './assets/img4.png';
 
 class App extends Component {
-  constructor(){
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      errors: {},
-      newMessage:{},
-      messages: []
+      form: [],
+      alert: false,
+      alertData: {}
     };
-    this.onChangeMessage = this.onChangeMessage.bind(this);
-    this.validateForm = this.validateForm.bind(this);
-    this.onSave = this.onSave.bind(this);
   }
-  componentDidMount () {
-    window.scroll(0, 0)
+
+  showAlert(type, message) {
+    this.setState({
+      alert: true,
+      alertData: { type, message }
+    });
+    setTimeout(() => {
+      this.setState({ alert: false });
+    }, 4000)
   }
-  onChangeMessage(e){
-    let newMessage = this.state.newMessage;
-    const field = e.target.name;
-    const value = e.target.value;
-    newMessage[field] = value;
-    this.setState({newMessage});
-  };
-  validateForm () {
-    let newMessage = this.state.newMessage;
-    console.log(newMessage)
-    let isOk = true;
-    return isOk;
-  };
-  onSave(e) {
-    e.preventDefault()
-    if (this.validateForm()) {
-      firebase.database().ref("mensajes")
-        .push(this.state.newMessage)
-        .then(r => {
-          console.log(r.key)
-          if(this.state.file){
-            let updates = {};
-            firebase.storage()
-              .ref(r.key)
-              .child(this.state.file.name)
-              .put(this.state.file)
-              .then(s=>{
-                const link = s.downloadURL;
-                let newMessage = this.state.newMessage;
-                newMessage["photos"] =[link];
-                updates[`/aplys/${r.key}`] = newMessage;
-                firebase.database().ref().update((updates));
-              });
-          }
-          alert("Mensaje enviado")
-        })
-      .catch(e=>{
-        console.log("asi no:", e.message);
+
+  resetForm() {
+    this.refs.contactForm.reset();
+  }
+
+  componentWillMount() {
+    let formRef = firebaseConf.database().ref('form').orderByKey().limitToLast(6);
+    formRef.on('child_added', snapshot => {
+      const { name, email} = snapshot.val();
+      const data = { name, email};
+      this.setState({ form: [data].concat(this.state.form) });
+    })
+  }
+
+  sendMessage(e) {
+    e.preventDefault();
+    const params = {
+      name: this.inputName.value,
+      email: this.inputEmail.value,
+    };
+    if (params.name && params.email) {
+      firebaseConf.database().ref('form').push(params).then(() => {
+        this.showAlert('success', 'Your message was sent successfull');
+      }).catch(() => {
+        this.showAlert('danger', 'Your message could not be sent');
       });
+      this.resetForm();
     } else {
-      alert("aun no");
+      this.showAlert('warning', 'Please fill the form');
     };
-  };
+  }
   render() {
-    const {errors, messages} = this.state;
     return (
       <div style={{backgroundColor: '#ffb218'}}>
         {/*orange*/}
@@ -91,7 +83,7 @@ class App extends Component {
           <div class="card">
             <h1 class="about-t">Nosotros</h1>
             <div style={{display: 'flex', justifyContent: 'center'}}>
-            <p class="about-p">Somos una empresa dedicada a desarrollar el potencial humano en las organizaciones, por medio de cursos, telleres, conferencias y asesorias multidiciplinarias.</p>
+            <p class="about-p">Somos una empresa dedicada a desarrollar el potencial humano en las organizaciones, por medio de cursos, talleres, conferencias y asesorías multidisciplinarias.</p>
             </div>
           </div>
         </div>
@@ -280,16 +272,16 @@ class App extends Component {
               <div class="prueba3">
                 <div style={{textAlign: 'left', width: '95%', margin: '5px'}}>
                   <div style={{width: '100%'}}>
-                    <p class="sep-t2c" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>"Coaching vocacional"</p>
-                    <p class="sep-t2c2" style={{marginLeft: '20px', fontWeight: '600', marginRight: '20px', color: '#FFF'}}>¿Quién soy?, ¿En dónde estoy? y exactamente... ¿A dónde voy?</p>
+                    <p class="sep-t2c" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>"CONFERENCIA:  EL PAPEL DEL MIEDO EN MI VIDA"</p>
+                    <p class="sep-t2c2" style={{marginLeft: '20px', fontWeight: '600', marginRight: '20px', color: '#FFF'}}>¿Cómo gestionar el miedo para escapar de mi zona de confort?</p>
                   </div>
                   <div style={{width: '100%', marginTop: '60px', borderTop: '3px solid #ff8500'}}>
-                    <p class="sep-t2c" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>"Aprende a leer a las personas y lograr relacones exitosas. Lenguaje corporal"</p>
-                    <p class="sep-t2c2" style={{marginLeft: '20px', fontWeight: '600', marginRight: '20px', color: '#FFF'}}>¿Aprende a leer a las personas y lograr relacones exitosas?</p>
+                    <p class="sep-t2c" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>"CONFERENCIA: LENGUAJE CORPORAL"</p>
+                    <p class="sep-t2c2" style={{marginLeft: '20px', fontWeight: '600', marginRight: '20px', color: '#FFF'}}>¿Cómo reconocer y gestionar nuestras emociones y estado de ánimo con ayuda del lenguaje corporal?</p>
                   </div>
                   <div style={{width: '100%', marginTop: '60px', borderTop: '3px solid #ff8500'}}>
-                    <p class="sep-t2c" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>"El miedo es malo o bueno"</p>
-                    <p class="sep-t2c2" style={{marginLeft: '20px', fontWeight: '600', marginRight: '20px', color: '#FFF'}}>El papel del miedo en la vida</p>
+                    <p class="sep-t2c" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>"CONFERENCIA: COACHING VOCACIONAL"</p>
+                    <p class="sep-t2c2" style={{marginLeft: '20px', fontWeight: '600', marginRight: '20px', color: '#FFF'}}>¿Quién soy?, ¿En dónde estoy? y exactamente… ¿A dónde voy? </p>
                   </div>
                 </div>
               </div>
@@ -304,10 +296,10 @@ class App extends Component {
               <div class="prueba4">
                 <div style={{textAlign: 'left', width: '90%', margin: '10px'}}>
                   <div style={{width: '100%'}}>
-                    <p class="sep-t2c" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>> Planeación finaciera personalizada</p>
-                    <p class="sep-t2c3" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#FFF'}}>> Acompañamieto personalizado dirigido a PyMES mediante herramientas de Coaching Sitémico o Empresarial</p>
-                    <p class="sep-t2c" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>> Asesorías en materia de "Diseño de programas de capacitación o profesionalización del capital humano" </p>
-                    <p class="sep-t2c3" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#FFF'}}>> Asesorías en materia de "Impartición de cursos de capacitación o profesionalización del capital humano"</p>
+                    <p class="sep-t2c" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>En “DISEÑO DE PROGRAMAS DE CAPACITACIÓN O PROFESIONALIZACIÓN DEL CAPITAL HUMANO”</p>
+                    <p class="sep-t2c3" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#FFF'}}>En “IMPARTICIÓN DE CURSOS DE CAPACITACIÓN O PROFESIONALIZACIÓN DEL CAPITAL HUMANO DE MANERA PRESENCIAL GRUPAL”</p>
+                    <p class="sep-t2c" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>En “DISEÑO DE DEMO PARA IMAGEN EMPRESARIAL Y PROYECTOS PERSONALES”</p>
+                    <p class="sep-t2c3" style={{marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#FFF'}}>En “PERSONALIZACIÓN DE CURRÍCULUM VITAE CREATIVO E INNOVADOR”</p>
                   </div>
                 </div>
               </div>
@@ -320,14 +312,27 @@ class App extends Component {
 
         <img src={img4} alt="" class="imgt"/>
 
-        <div>
-          <Contact
-            messages={messages}
-            message={this.state.newMessage}
-            onChangeMessage={this.onChangeMessage}
-            errors={errors}
-            onSave={this.onSave}/>
+
+
+        {this.state.alert && <div className={`alert alert-${this.state.alertData.type}`} role='alert'>
+          <div className='container'>
+            {this.state.alertData.message}
+          </div>
+        </div>}
+        <div className='container' style={{padding: '40px 0px'}}>
+          <div>
+            <h1 class="contact">Contáctanos</h1>
+            <form class="conct" onSubmit={this.sendMessage.bind(this)} ref='contactForm'>
+              <div style={{marginTop: '-5px'}}>
+                <input class="form-c" type='text' id='name' placeholder='Name' ref={name => this.inputName = name} />
+                <input class="form-c2" type='email' id='email' placeholder='Email' ref={email => this.inputEmail = email} />
+              </div>
+              <div>
+                <button type='submit' class="boton-color3">Enviar</button>
+              </div>
+            </form>
         </div>
+      </div>
 
         <div style={{backgroundColor: '#ffb218', height: '50px'}}>
         </div>
