@@ -97,10 +97,10 @@ class App extends Component {
             <img src={img1} alt=""/>
           </div>
           <div class="img">
-            <img src={img2} alt=""/>
+            <img src={img3} alt=""/>
           </div>
           <div class="img">
-            <img src={img3} alt=""/>
+            <img src={img2} alt=""/>
           </div>
         </div>
 
