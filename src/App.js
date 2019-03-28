@@ -3,8 +3,8 @@ import './App.css';
 import {Contact} from './components/contact/Contact';
 import firebase from './Firebase';
 import img1 from './assets/icon1.png';
-import img2 from './assets/icon2.png';
-import img3 from './assets/icon3.png';
+import img2 from './assets/icon3.png';
+import img3 from './assets/icon2.png';
 import lamp1 from './assets/lamp1.png';
 import lamp2 from './assets/lamp2.png';
 import lamp3 from './assets/lamp3.png';
@@ -218,54 +218,54 @@ class App extends Component {
               <div class="prueba2">
                 <div class="c-cont1t">
                   <div class="sept" style={{marginTop: '-8px'}}>
-                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Coaching vocacional</p>
+                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Taller: De Una Idea Al Emprendimiento</p>
                   </div>
                   <div class="sept" style={{marginTop: '-18px'}}>
-                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Organizando mis finazas personales y organizacionales</p>
+                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Taller: Gestión inteligente de las emociones en la empresa</p>
                   </div>
                   <div class="sept" style={{marginTop: '-18px'}}>
-                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>¿No te entienden? o ¿No te das a entender?</p>
+                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Taller: Aprende a Diseñar, Implentar e Interpretar instrumentos de evaluación</p>
                   </div>
                   <div class="sept" style={{marginTop: '-18px'}}>
-                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Aprende a leer a las personas y lograr relacones exitosas.</p>
+                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Taller: Aprende a Leer a Las Personas y Logra Relaciones Exitosas</p>
                   </div>
                   <div class="sept" style={{marginTop: '-18px'}}>
-                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Gestión inteligente de las emociones en la empresa</p>
+                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Taller: Erroes En El Proceso De Comunicacíon y Su Antídoto</p>
                   </div>
                   <div class="sept" style={{marginTop: '-18px'}}>
-                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Estrategias de endomarketing en las organizaciones</p>
+                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Taller: Coaching Vocacional</p>
                   </div>
                   <div class="sept" style={{marginTop: '-18px'}}>
-                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Lo que estas creyendo... ¿Te destruye o te transforma?</p>
+                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Taller: La Influencia De Las Creencias Limitantes En Tu Vida</p>
                   </div>
                   <div class="sept" style={{marginTop: '-18px'}}>
-                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>¿Por qué tu si y yo no?</p>
+                    <p class="sep-t2" style={{background: '#234', marginLeft: '20px', fontWeight: '800', marginRight: '20px', color: '#ff8500'}}>Taller: Las Diferencias De Género Para EL Cumplimiento De Las Metas</p>
                   </div>
                 </div>
                 <div class="c-cont2t">
                   <div class="sept" style={{marginTop: '-5px'}}>
-                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>¿Quién soy?, ¿En dónde estoy? y exactamente... ¿A dónde voy?</p>
+                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>¿Tienes una idea de negocio y no sabes por dónde comenzar?</p>
                   </div>
-                  <div class="sept" style={{marginTop: '-18px'}}>
-                    <p class="sep-t3" style={{lineHeight: '18px', background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>¿Cómo puedo administrar mis fianzas personales u organizacionales eficientemente ?</p>
+                  <div class="sept" style={{marginTop: '-5px'}}>
+                    <p class="sep-t3" style={{lineHeight: '18px', background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>¿Cómo gestionar inteligentemente las emociones en mi empresa?</p>
                   </div>
                   <div class="sept" style={{marginTop: '-10px'}}>
-                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>Errores en el priceso de comunicación efectiva</p>
+                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>¿Cómo eficientar mis procesos de evaluación?</p>
                   </div>
                   <div class="sept" style={{marginTop: '-13px'}}>
-                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>Aprende a leer a las personas para lograr relaciones exitosas</p>
+                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>¿Qué es el lenguaje corporal? Y ¿Cómo utilizarlo para aprender a leer a las personas y lograr relaciones exitosas?</p>
                   </div>
                   <div class="sept" style={{marginTop: '-14px'}}>
-                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>¿Cómo gestionar inteligentemente las relaciones en mi empresa?</p>
+                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>¿No te entienden? O ¿No te das a entender?</p>
                   </div>
                   <div class="sept" style={{marginTop: '-18px'}}>
-                    <p class="sep-t3" style={{lineHeight: '18px', background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>¿Como mantrener a mis colaboradores enterados sobre lo que sucede en la organización y fortalecer la entidad organizacional?</p>
+                    <p class="sep-t3" style={{lineHeight: '18px', background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>¿Quién soy?,¿En dónde estoy? y exactamente... ¿A dónde voy?</p>
                   </div>
                   <div class="sept" style={{marginTop: '-10px'}}>
-                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>La influencia de las creencias limitantes en la vida</p>
+                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>Lo que estás creyedo... ¿Te destruye o te tranfsforma?</p>
                   </div>
                   <div class="sept" style={{marginTop: '-15px'}}>
-                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>las diferecias de género para el cumplimiento de metas</p>
+                    <p class="sep-t3" style={{background: '#ff8500', marginLeft: '10px', fontWeight: '800', marginRight: '10px', color: '#1c2b3f'}}>¿Por quén tú y yo no?</p>
                   </div>
                 </div>
               </div>
