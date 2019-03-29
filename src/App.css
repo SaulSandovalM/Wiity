@@ -89,7 +89,7 @@
 .lamp:hover .prueba {
   display: flex;
   width: 1200px;
-  height: 420px;
+  height: 450px;
   background: #04192d;;
   justify-content: center;
   margin-left: 50px;
@@ -101,7 +101,7 @@
 .lamp:hover .prueba2 {
   display: flex;
   width: 1200px;
-  height: 420px;
+  height: 530px;
   background: #04192d;;
   justify-content: center;
   margin-left: -260px;
@@ -189,7 +189,7 @@
   line-height: 30px;
 }
 .sep-t2c {
-  font-size: 25px;
+  font-size: 20px;
   color: #1c2b3f;
   line-height: 30px;
 }
